@@ -10,6 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
     <style>
+        /* ПЛАВНЫЙ СКРОЛЛ */
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -38,32 +43,26 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
         header .container {
+            position: relative;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo-img {
-            height: 48px;
-            width: auto;
-            border-radius: 8px;
         }
         .logo {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: 1.7rem;
-            letter-spacing: 1px;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
             background: linear-gradient(135deg, #d4b48c, #f5e6c8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-align: center;
         }
         nav {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
@@ -226,14 +225,24 @@
             .hero h1 { font-size: 2.4rem; }
             .section-title { font-size: 2rem; }
             .card { padding: 20px; }
-            header .container { flex-direction: column; align-items: stretch; text-align: center; }
-            nav { justify-content: center; }
-            .logo-wrapper { justify-content: center; }
+            header .container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav {
+                position: static;
+                transform: none;
+                justify-content: center;
+                width: 100%;
+            }
+            .logo {
+                font-size: 1.6rem;
+            }
         }
         @media (max-width: 480px) {
             .hero { padding: 50px 0 40px; }
             .hero h1 { font-size: 1.8rem; }
-            .logo-img { height: 36px; }
+            .logo { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -242,10 +251,7 @@
 <!-- Шапка -->
 <header>
     <div class="container">
-        <div class="logo-wrapper">
-            <img src="https://github.com/MayorDd-gmod/Antonuo-DOBROGRAD/blob/main/ANTONUO%20NOCELOK.png?raw=true" alt="Логотип Антонио" class="logo-img" />
-            <span class="logo">🌲 Антонио</span>
-        </div>
+        <div class="logo">АНТОНИО</div>
         <nav>
             <a href="#about">О посёлке</a>
             <a href="#history">История</a>
