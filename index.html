@@ -1,1 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Антонио · Лесной посёлок в Доброграде</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f0ea;
+            color: #2d2a24;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
+        /* ---------- Шапка ---------- */
+        header {
+            background: #1e3a2f;
+            color: #ede7df;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-img {
+            height: 48px;
+            width: auto;
+            border-radius: 8px;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.7rem;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #d4b48c, #f5e6c8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #ede7df;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 6px 10px;
+            border-radius: 30px;
+            transition: 0.2s;
+        }
+        nav a:hover {
+            background: #d4b48c;
+            color: #1e3a2f;
+        }
+
+        /* ---------- Герой ---------- */
+        .hero {
+            background: linear-gradient(135deg, #2b4d3a, #1a2e24);
+            color: #f5ede4;
+            padding: 80px 0 60px;
+            text-align: center;
+            border-bottom: 6px solid #d4b48c;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+        .hero .sub {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+        .hero .epigraph {
+            font-style: italic;
+            font-size: 1.1rem;
+            border-top: 2px solid #d4b48c;
+            border-bottom: 2px solid #d4b48c;
+            display: inline-block;
+            padding: 10px 30px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ---------- Секции ---------- */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #ddd6cd;
+        }
+        section:last-child {
+            border-bottom: none;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #1e3a2f;
+            margin-bottom: 28px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #d4b48c;
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+
+        .card {
+            background: #fffcf8;
+            border-radius: 20px;
+            padding: 28px 32px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            margin-bottom: 24px;
+            transition: 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+        }
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #1e3a2f;
+            margin-bottom: 12px;
+        }
+        .card p {
+            margin-bottom: 12px;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #f5ede4;
+            border-left: 6px solid #d4b48c;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin: 16px 0;
+        }
+
+        /* ---------- Зелёная кнопка Discord ---------- */
+        .discord-btn {
+            display: inline-block;
+            background: #2d6a4f;
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: 0.2s;
+            box-shadow: 0 4px 14px rgba(45, 106, 79, 0.3);
+            letter-spacing: 0.5px;
+        }
+        .discord-btn:hover {
+            background: #1e4f3a;
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(45, 106, 79, 0.4);
+        }
+
+        /* ---------- Футер ---------- */
+        footer {
+            background: #1e3a2f;
+            color: #c8c0b5;
+            padding: 32px 0;
+            text-align: center;
+        }
+        footer .copy {
+            font-size: 0.9rem;
+        }
+        footer .links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        footer .links a {
+            color: #ede7df;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        footer .links a:hover {
+            color: #d4b48c;
+        }
+
+        /* ---------- Адаптив ---------- */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2.4rem; }
+            .section-title { font-size: 2rem; }
+            .card { padding: 20px; }
+            header .container { flex-direction: column; align-items: stretch; text-align: center; }
+            nav { justify-content: center; }
+            .logo-wrapper { justify-content: center; }
+        }
+        @media (max-width: 480px) {
+            .hero { padding: 50px 0 40px; }
+            .hero h1 { font-size: 1.8rem; }
+            .logo-img { height: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Шапка -->
+<header>
+    <div class="container">
+        <div class="logo-wrapper">
+            <img src="https://github.com/MayorDd-gmod/Antonuo-DOBROGRAD/blob/main/ANTONUO%20NOCELOK.png?raw=true" alt="Логотип Антонио" class="logo-img" />
+            <span class="logo">🌲 Антонио</span>
+        </div>
+        <nav>
+            <a href="#about">О посёлке</a>
+            <a href="#history">История</a>
+            <a href="#today">Современность</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Герой -->
+<section class="hero">
+    <div class="container">
+        <h1>Антонио</h1>
+        <div class="sub">Лесной посёлок в сердце Доброграда</div>
+        <div class="epigraph">
+            «Где туман встречает сосны, а тишина лечит душу»
+        </div>
+    </div>
+</section>
+
+<!-- О посёлке -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">О посёлке</h2>
+        <div class="card">
+            <p><strong>Антонио</strong> — уникальный район города Доброград (ранее Ривер-Грайт), расположенный в лесной зоне округа Уэйн, штат Мичиган. Это место, где городская инфраструктура встречается с дикой природой, а жители — преимущественно сотрудники экстренных служб — ценят покой и свежий воздух.</p>
+            <p>Посёлок был основан в конце XIX века итальянским иммигрантом <strong>Антонио Моретти</strong>, который искал уединения от промышленного шума. Сегодня Антонио — это закрытое сообщество профессионалов, сохраняющее свою аутентичную атмосферу.</p>
+        </div>
+    </div>
+</section>
+
+<!-- История -->
+<section id="history">
+    <div class="container">
+        <h2 class="section-title">История Антонио</h2>
+
+        <div class="card">
+            <h3>Глава 1 · Ранний период (1880–1920-е)</h3>
+            <p>Пока Герберт Ривер развивал промышленный Ривер-Грайт, в лесных окраинах округа Уэйн начали селиться первые пионеры. Эти земли, покрытые густыми хвойными лесами, не представляли интереса для добычи руды, поэтому оставались нетронутыми индустриализацией.</p>
+            <p>Одним из первых поселенцев был <strong>Антонио Моретти</strong> — итальянский иммигрант, прибывший в Мичиган в 1880-х. Проработав несколько лет на заводе, он накопил достаточно средств, чтобы купить участок земли в лесу. Он построил дом своими руками и начал вести натуральное хозяйство. Вскоре к нему присоединились другие семьи — так появилась <strong>улица Антонио</strong>.</p>
+        </div>
+
+        <div class="card">
+            <h3>Глава 2 · Лесная изоляция (1930–1980-е)</h3>
+            <p>Пока Ривер-Грайт переживал расцвет, Великую Депрессию и последующие трудности, посёлок Антонио жил обособленно. Жители занимались лесным хозяйством, охотой и мелким фермерством.</p>
+            <p>В 1930-е годы, когда промышленный город сокращал производство, некоторые безработные горожане перебирались в Антонио. Посёлок оставался практически автономным: жители сами оказывали первую помощь, тушили лесные пожары, поддерживали порядок. До 1980-х здесь не было электричества и связи — только грунтовые дороги.</p>
+        </div>
+
+        <div class="card">
+            <h3>Глава 3 · Влияние перемен (1990-е)</h3>
+            <p>В 1990-е годы в Ривер-Грайте (будущем Доброграде) начались масштабные изменения — массовый приток русскоговорящих иммигрантов из стран бывшего СССР изменил демографическую и культурную обстановку.</p>
+            <p>Городские власти запустили программу расширения городской черты. Посёлок Антонио, формально находившийся в округе Уэйн, был включён в юрисдикцию Городской Полиции Ривер-Грайта. Это решение было продиктовано усилением контроля над отдалёнными территориями, необходимостью защиты лесов и желанием дать жителям полноценную инфраструктуру.</p>
+        </div>
+
+        <div class="card">
+            <h3>Глава 4 · Интеграция в Доброград (2000–2010-е)</h3>
+            <p>После референдума 1996 года и переименования города в <strong>Доброград</strong> началась активная интеграция Антонио в городскую среду.</p>
+            <div class="highlight">
+                <strong>Ключевые изменения:</strong>
+                <ul style="margin-top:6px; padding-left:20px;">
+                    <li>Построена новая асфальтированная дорога с разметкой, соединяющая посёлок с городом</li>
+                    <li>Проведены электричество, телефонная связь, интернет</li>
+                    <li>Установлено регулярное патрулирование полиции</li>
+                </ul>
+            </div>
+            <p>Однако удалённость от центра (около 20–25 минут езды) и постоянные туманы сохранили загородную атмосферу. Район остался лесным и тихим, но теперь имел полную городскую инфраструктуру.</p>
+        </div>
+
+        <div class="card">
+            <h3>Глава 5 · Профессиональное сообщество (2010-е — наши дни)</h3>
+            <p>В 2010-х годах в Антонио произошла демографическая трансформация. Район начал привлекать сотрудников экстренных служб Доброграда, уставших от городской суеты и криминала.</p>
+            <div class="highlight">
+                <strong>Почему полицейские и медики выбрали Антонио:</strong>
+                <ul style="margin-top:6px; padding-left:20px;">
+                    <li>Экологически чистая лесная среда</li>
+                    <li>Низкий уровень преступности (все знают соседей)</li>
+                    <li>Большие участки для строительства домов</li>
+                    <li>Полная городская инфраструктура и юрисдикция Доброграда</li>
+                    <li>Быстрый доступ в город по новой дороге</li>
+                    <li>Тишина и покой после тяжёлых рабочих смен</li>
+                </ul>
+            </div>
+            <p>К 2020-м годам сложилась уникальная ситуация: <strong>большинство жителей Антонио работают в структурах Доброграда</strong> — в полиции, больнице, скорой помощи, пожарной службе.</p>
+            <p>Сегодня Антонио — это <strong>закрытое сообщество профессионалов первого ответа</strong>, формально являющееся районом города, но сохраняющее загородную атмосферу.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Современность -->
+<section id="today">
+    <div class="container">
+        <h2 class="section-title">Антонио сегодня</h2>
+        <div class="card">
+            <p>Посёлок Антонио — это удивительный уголок, где городские стандарты сочетаются с деревенским уютом. Здесь живут люди, которые выбрали тишину и природу, но при этом остаются частью большого города.</p>
+            <p>Среди сосен и туманов вы найдёте современные дома с электричеством и интернетом, но дороги всё ещё огибают вековые деревья. Местные жители гордятся своей общиной и бережно хранят историю первопроходцев.</p>
+            <p>Антонио — это не просто район, это <strong>сообщество единомышленников</strong>, которые каждый день возвращаются в свой лесной дом после работы на благо города.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Контакты -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Контакты</h2>
+        <div class="card" style="display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between;">
+            <div>
+                <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 6px;">📍 Адрес</h4>
+                <p>посёлок Антонио, Доброград, Мичиган, США</p>
+            </div>
+            <div>
+                <h4 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 10px;">🌳 Сообщество</h4>
+                <a href="https://discord.gg/Wqwyv9qPch" target="_blank" class="discord-btn">
+                    🌳 ПРИСОЕДИНИТЬСЯ
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Футер -->
+<footer>
+    <div class="container">
+        <div class="links">
+            <a href="#about">О посёлке</a>
+            <a href="#history">История</a>
+            <a href="#today">Современность</a>
+            <a href="#contact">Контакты</a>
+        </div>
+        <div class="copy">© 2026 Антонио · Лесной посёлок Доброграда</div>
+    </div>
+</footer>
+
+</body>
+</html>
